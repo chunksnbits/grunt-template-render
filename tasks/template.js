@@ -26,6 +26,14 @@ module.exports = function(grunt) {
     }).join('\n');
   };
 
+
+  // Attaches custom template helper methods
+  //
+  // render: function(string)
+  //   Replaces the tag with the (html) at the specified location.
+  //
+  // translate: function(string)
+  //   Resolves a given key with the value for the current language
   var attachTemplateHelpers = function(options) {
     return _.merge(options.data, {
 
@@ -50,6 +58,9 @@ module.exports = function(grunt) {
     });
   };
 
+  // Iterates recursively over all provided options
+  // executes them in case the option was provided as
+  // a function.
   var evaluateFunctions = function(options) {
     var recurse = function(options) {
       _.each(options, function(value, key) {
@@ -68,12 +79,14 @@ module.exports = function(grunt) {
 
   grunt.registerMultiTask(
     'template',
-    'Template parsing task that allows for partial replacement and translations.',
+    'Grunt template rendering with partial and translation support.',
 
     function() {
 
       var options = this.options({
         cwd: process.cwd(),
+
+        // Pass through default grunt.template.process options
         data: {},
         delimiters: 'config'
       });
@@ -84,12 +97,18 @@ module.exports = function(grunt) {
         var originalOptions = evaluateFunctions(options);
         var translations = options.translations || { 'default': {} };
 
+        // Iterate over all translations provided
         _.each(translations, function(currentTranslation, language) {
 
+          // Template options will be nullified by grunt's
+          // template.process method.
+          // Thus create a clone before passing them.
           var templateOptions = _.clone(originalOptions);
 
           var template = readTemplateFile(file);
 
+          // Provide all required options for processing the
+          // templase.
           templateOptions.translations = currentTranslation;
           templateOptions = attachTemplateHelpers(templateOptions);
 
@@ -97,6 +116,8 @@ module.exports = function(grunt) {
             data: templateOptions
           });
 
+          // Replace a unique filename for each translation
+          // processed.
           var dest = file.dest.replace('%', language);
 
           // Write the destination file
