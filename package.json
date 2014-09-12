@@ -1,13 +1,15 @@
 {
   "name": "grunt-template-render",
   "version": "0.0.1",
-  "description": "Grunt template rendering, with partial and translation support",
+  "description": "Grunt template rendering with partial and translation support",
   "author": {
     "name": "Daniel Eissing"
   },
   "homepage": "",
   "license": "MIT",
   "repository": {
+    "type": "git",
+    "url": "https://github.com/chunksnbits/grunt-template-render.git"
   },
   "files": [
     "tasks/"
