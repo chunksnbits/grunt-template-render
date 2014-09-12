@@ -1,0 +1,26 @@
+{
+  "name": "grunt-template-render",
+  "version": "0.0.1",
+  "description": "Grunt template rendering, with partial and translation support",
+  "author": {
+    "name": "Daniel Eissing"
+  },
+  "homepage": "",
+  "license": "MIT",
+  "repository": {
+  },
+  "files": [
+    "tasks/"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "~0.4.2"
+  },
+  "keywords": [
+    "gruntplugin",
+    "template",
+    "partials",
+    "translations"
+  ],
+  "readmeFilename": "README.md"
+}
