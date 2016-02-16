@@ -101,7 +101,7 @@ Evaluate translations in templates using the `<%= translate('translation.key') %
 ```js
 module.exports = function(grunt) {
 
-  grunt.loadNpmTasks('grunt-template');
+  grunt.loadNpmTasks('grunt-template-render');
 
   grunt.initConfig({
     template: {
@@ -142,7 +142,7 @@ module.exports = function(grunt) {
 ```js
 module.exports = function(grunt) {
 
-  grunt.loadNpmTasks('grunt-template');
+  grunt.loadNpmTasks('grunt-template-render');
 
   grunt.initConfig({
     template: {

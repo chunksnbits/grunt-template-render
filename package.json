@@ -1,6 +1,6 @@
 {
   "name": "grunt-template-render",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Grunt template rendering with partial and translation support",
   "author": {
     "name": "Daniel Eissing"
@@ -16,7 +16,8 @@
   ],
   "dependencies": {},
   "devDependencies": {
-    "grunt": "~0.4.2"
+    "grunt": "~0.4.2",
+    "lodash": "4.3.0"
   },
   "keywords": [
     "gruntplugin",
